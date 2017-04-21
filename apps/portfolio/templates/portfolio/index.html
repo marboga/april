@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+ <html ng-app="MyApp">
+ {% load staticfiles %}
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="description" content="Michael Arbogast is a full-stack web developer specializing in Python, MEAN, and iOS development. This is his portfolio.">
+		<title>Portfolio: Michael Arbogast</title>
+		<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,700italic' rel='stylesheet' type='text/css'>
+	   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'portfolio/materialize.css' %}">
+		<link rel="stylesheet" href="{% static 'portfolio/style.css' %}">
+
+		<script type="text/javascript" src="{% static 'portfolio/jquery-2.2.4.min.js' %}"></script>
+
+		<script type="text/javascript" src="{% static 'portfolio/angular.js' %}"></script>
+		<script type="text/javascript" src="{% static 'portfolio/angular-route.js' %}"></script>
+		<script type="text/javascript" src="{% static 'portfolio/js/config/app.js' %}"></script>
+		<script type="text/javascript" src="{% static 'portfolio/materialize.js' %}"></script>
+
+		<!-- factories go first -->
+		<script type="text/javascript" src="{% static 'portfolio/js/factories/userFactory.js' %}"></script>
+
+		<!-- then controllers -->
+		<script type="text/javascript" src="{% static 'portfolio/js/controllers/usersController.js' %}"></script>
+
+		<!-- routes last -->
+		<script type="text/javascript" src="{% static 'portfolio/js/config/routes.js' %}"></script>
+
+		<script type="text/javascript">
+		//This is the function which makes clicking on navbar items smooth and slow
+			$(function() {
+				$('a[href*="#"]:not([href="#"])').click(function() {
+				 if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+					var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+					if (target.length) {
+					  $('html, body').animate({
+						 scrollTop: target.offset().top
+					  }, 1000);
+					  return false;
+					}
+				 }
+				});
+			});
+		</script>
+	</head>
+	<body>
+
+
+
+
+<div class="navbar-fixed">
+	<nav class="grey" role="navigation">
+		<div class="nav-wrapper container">
+			<a id="logo-container" href="#/" class="brand-logo ">Michael Arbogast</a>
+			<ul class="right hide-on-med-and-down">
+				<li><a class="waves-effect waves-light" href="#about">About</a></li>
+				<li><a class="waves-effect waves-light" href="#projects">Projects</a></li>
+				<li><a class="waves-effect waves-light" href="#contact">Contact</a></li>
+				<li><a class="waves-effect waves-light" href="#login">login</a></li>
+			</ul>
+
+			<ul id="nav-mobile" class="side-nav">
+				<li><a class="waves-effect waves-light" href="#about">About</a></li>
+				<li><a class="waves-effect waves-light" href="#projects">Projects</a></li>
+				<li><a class="waves-effect waves-light" href="#contact">Contact</a></li>
+				<li><a class="waves-effect waves-light" href="#login">login</a></li>
+			</ul>
+			<!-- <a href="#" class="hide-on-small-and-up" class="button-collapse"><i class="material-icons">Michael Arbogast</i></a> -->
+		</div>
+	</nav>
+</div>
+
+<!-- <div class="background horizon"> -->
+<div class="parallax-container" id="about">
+  <div class="caption">
+
+		  <div class="intro">
+				 <img src="{% static 'portfolio/img/profile-photo.jpg' %}" alt="a photo of myself" /><br>
+				 Hi! I'm Michael.
+			 </div>
+
+  </div>
+  <div class="parallax">
+	  <img src="{% static 'portfolio/img/horizonboat.jpeg' %}" alt="standing rigging">
+  </div>
+</div>
+
+<div class="index-banner">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+		<div class="row left">
+			<h5 class="header col s12 light">
+				I design and build full-stack web and mobile applications using MEAN, Python(Django), and Swift. I love working inside front-end MVCs to build responsive web apps, juggling partials and controllers and managing database queries and socket emits.
+			</h5>
+			<h5 class="header col s12 light">
+				Before I discovered the joy of coding, I taught Latin and medieval philosophy. I’m constantly refining and improving my process, and am looking for a forward-thinking team where I can make a solid contribution and be continually challenged to grow.
+			</h5>
+			<h5 class="header col s12 light">
+				I'm also a lifelong sailor. If I'm not coding for work or play, you might find me on a boat, climbing, or reading.
+			</h5>
+ 	  </div>
+      <div class="row center">
+			<h5 class="header col s12 light">What can I help you create?</h5>
+		</div>
+		<div class="row center">
+        <a href="mailto:michael.arbogast@gmail.com" class="btn waves-effect waves-light gray lighten-1">Ping me</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="projects">
+  <!-- <div class="parallax-container">
+    <img class='parallax' src="{% static 'portfolio/img/square-rig.jpeg' %}" alt="standing rigging">
+  </div> -->
+
+<!-- <br><br> -->
+</div>
+
+
+<div class="projects information" >
+	<h4 class="font textcenter ">a few of my projects:</h4>
+		<div class="row">
+
+
+	        <div class="col s12 m6 l4 project">
+	          <div class="card extra-large">
+	            <div class="card-content">
+						<span class="card-title activator grey-text text-darken-3 noTopMargin">Neighborhood<i class="material-icons right">more_vert</i></span>
+	            </div>
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="{% static 'portfolio/img/Neighborhood-20.jpg' %}" alt="screnshot of Neighborhood page">
+					</div>
+	            <div class="card-reveal">
+						<span class="card-title grey-text text-darken-3">Neighborhood</span>
+						<!-- <img class="card-image" src="{% static 'portfolio/img/Neighborh' %}ood-2.png"> -->
+						<p>Built in Django, <em>Neighborhood</em> is a local social network using Twitter and Google Maps integration to display recent tweets from the mile around your location - a graphical way to see what is going on around you in real time.</p>
+						<div class="card-action">
+							<!-- <a href="#">Link to deployed project coming soon</a><br> -->
+							<ul>
+								<li>Python</li>
+								<li>Django</li>
+								<li>Twitter API</li>
+								<li>Google Maps API</li>
+								<li>Python Social Auth</li>
+							</ul>
+						</div>
+	            </div>
+	          </div>
+	        </div>
+
+
+			  <div class="col s12 m6 l4 project">
+			    <div class="card extra-large">
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-3 noTopMargin font">Capture!<i class="material-icons right">more_vert</i></span>
+					</div>
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="{% static 'portfolio/img/capture1.jpg' %}" alt="screnshot of Capture! app">
+					</div>
+			 	  <div class="card-reveal">
+			 		  <span class="card-title grey-text text-darken-3 font">Capture!</span>
+			 		  <p>Built for iOS, <em>Capture!</em> is a real-life multiplayer capture the flag game.</p><p>Users can create or join games, defining boundaries for the play area. Flags are randomly generated within a range of the far boundary corner.</p><p>Players can tag opponents or be tagged, depending on which team's zone the players are in, with sound notifications to both players. Also, the app beeps at users who are out of bounds once the game has started.</p><p>The real-time updates of other users' positions on the map are facilitated by Firebase. </p>
+					  <div class="card-action">
+						  <!-- <a href="#">Link to deployed project coming soon</a><br> -->
+						  <video height="500" width="100%" controls muted="true"  volume="0" class="card-image">
+							  <source src="{% static 'portfolio/img/capture_recording_3.mov' %}" type="video/mp4" alt="video of Capture app in action">
+							  Your browser does not support the video tag.
+						  </video>
+						  <ul>
+							  <li>iOS</li>
+							  <li>Swift</li>
+							  <li>Firebase</li>
+							  <li>CoreLocation</li>
+							  <li>MapKit</li>
+							  <li>CocoaPods</li>
+						  </ul>
+					  </div>
+			 	  </div>
+			    </div>
+			  </div>
+
+
+			  <div class="col s12 m6 l4 project">
+			    <div class="card extra-large">
+			  	 <div class="card-content">
+				  	<span class="card-title activator grey-text text-darken-3 noTopMargin font">Sprog<i class="material-icons right">more_vert</i></span>
+				  	<div class="card-image waves-effect waves-block waves-light">
+				  		<img class="activator" src="{% static 'portfolio/img/sprog.png' %}" alt="screnshot of Sprog page">
+				  	</div>
+				 </div>
+			  	<div class="card-reveal">
+			  		<span class="card-title grey-text text-darken-3">Sprog</span>
+			  		<p>Built in full MEAN, <em>Sprog</em> is a fully featured flashcard app for learning languages. </p><p>Users can select the languages they wish to learn, browse existing flashcards and easily create new ones using Google Translate and image search and auto-fill.</p><p>Users can also quiz themselves on custom-built decks, clicking on the card to hear a native speaker say the word aloud.</p>
+					<div class="card-action">
+						<!-- <a href="#">Link to deployed project coming soon</a><br> -->
+						<ul>
+							<li>Node.js</li>
+							<li>Angular</li>
+							<li>Twitter Bootstrap</li>
+							<li>Google Translate API</li>
+							<li>Forvo API</li>
+						</ul>
+					</div>
+			  	</div>
+			    </div>
+			  </div>
+
+
+
+</div>
+		  </div> <!-- row -->
+  </div> <!-- projects -->
+
+
+
+  <!-- <div class="skills"> -->
+  	<div class="container skills">
+		<h4 class="textcenter font" center>Technologies:</h4>
+		<div class="col s8 m8 textcenter" center>
+			<img src="{% static 'portfolio/logos/node-js' %}.png" alt="" />
+			<img src="{% static 'portfolio/logos/javascript.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/angular-js.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/ajax.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/express-js.png' %}" alt="" />
+			<img class="logobig" src="{% static 'portfolio/logos/css3.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/django.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/ios-programming.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/ios-swift.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/jquery.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/mongo-db.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/mysql.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/python.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/socketio.png' %}" alt="" />
+			<img src="{% static 'portfolio/logos/xcode-ios.png' %}" alt="" />
+			<img class="logobig" src="{% static 'portfolio/logos/html5-1.png' %}" alt="" />
+
+  		</div>
+  	</div>
+  <!-- </div> -->
+
+<div id="contact">
+	<br><br>
+</div>
+<div class="contact-info">
+	<div class="section no-pad-bot">
+		<div class="container">
+			<br><br>
+			<div class="row center">
+				<h4 class="header col s12 light">Toss me a line:</h4>
+				<h5>
+					<a class="header" href="mailto:michael.arbogast@gmail.com?subject=feedback">michael.arbogast@gmail.com</a>
+				</h5>
+				<h5><a href="tel:+12535496995">(253) 549.6995</a></h5>
+				<h5><a href="{% static 'portfolio/Michael_Arbogast_Resume.pdf' %}">my resume</a></h5>
+			</div>
+			<div class="row center contacts">
+				<a href="mailto:michael.arbogast@gmail.com?subject=feedback" target="_blank">
+					<img class="emailogo" src="https://cdn1.iconfinder.com/data/icons/education-set-01/512/email-open-64.png" alt="email logo" />
+				</a>
+				<a href="https://github.com/marboga" target="_blank">
+					<img src="{% static 'portfolio/img/GitHub-Mark-64px.png' %}" alt="GitHub logo" />
+				</a>
+				<a href="https://www.linkedin.com/in/michael-arbogast-18b45854" target="_blank">
+					<img src="{% static 'portfolio/img/In-Black-66px-R.png' %}" alt="LinkedIn logo" />
+				</a>
+				<br><br>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="parallax-container" id="about">
+  <div class="parallax">
+	  <img src="{% static 'portfolio/img/heel.jpeg' %}" alt="view looking forward from the deck of a boat at sail">
+  </div>
+</div>
+
+<!-- <div class="heel background"></div> -->
+
+<div style="position:relative;">
+  <div id="contact" class="spacer">
+    <p>built from scratch in 2016 by Michael Arbogast.</p>
+  </div>
+</div>
+</div>
+
+
+</body>
+</html>

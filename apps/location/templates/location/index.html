@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Our Hellp World App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'location/css/my.css' %}">
+  </head>
+  <body>
+    <h1>Hi there again, {{ request.session.first_name }}!</h1>
+
+    <a href="{% url 'auth:logout' %}">Log Out</a>
+
+    {% for location in locations %}
+      <h2>{{ location.name }}</h2>
+      <p>{{ location.created_at }} {{ location.zip_code }}</p>
+      <p>{{ location.captain.first_name }} {{ location.captain }}</p>
+    {% endfor %}
+
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h4>Location</h4>
+    <div class="row">
+      <div class="columns six">
+        <form class="" action="{% url 'location:create' %}" method="post">
+          {% csrf_token %}
+          <label for="name">name:</label>
+          <input type="text" name="name" value="">
+          <label for="street_address">street_address:</label>
+          <input type="text" name="street_address" value="">
+          <label for="city">city:</label>
+          <input type="text" name="city" value="">
+          <label for="state">state:</label>
+          <input type="text" name="state" value="">
+          <label for="zip_code">zip_code:</label>
+          <input type="number" name="zip_code" value="">
+
+          <input type="submit" name="" value="Add a new Location">
+        </form>
+      </div>
+      <div class="columns six">
+        <form class="" action="{% url 'location:create_stack' %}" method="post">
+          {% csrf_token %}
+          <label for="language">language</label>
+          <input type="text" name="language" value="">
+          <label for="is_first_stack">is_first_stack</label>
+          <input type="checkbox" name="is_first_stack">
+          <label for="main_framework">main_framework</label>
+          <input type="text" name="main_framework" value="">
+
+          <input type="submit" name="" value="Create New Stack">
+        </form>
+
+        <h3>Add stack to location</h3>
+        <form class="" action="{% url  'location:add_stack' %}" method="post">
+          {% csrf_token %}
+          <select class="" name="stack">
+            {% for stack in stacks %}
+            <option value="{{ stack.id }}">{{ stack.language }}</option>
+            {% endfor %}
+          </select>
+          <select class="" name="location">
+            {% for location in locations %}
+            <option value="{{ location.id }}">{{ location.name }}</option>
+            {% endfor %}
+          </select>
+          <input type="submit" name="" value="Add">
+        </form>
+
+
+        {% for stack in stacks %}
+          <h2>{{ stack.language }}</h2>
+          <p>{{ stack.main_framework }} {{ stack.is_first_stack }}</p>
+          <ul>
+            {% for loc in stack.available_locations.all %}
+              <li>{{ loc.name }} | {{ loc.state_abbrev }}</li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+
+      </div>
+    </div>
+
+
+  </body>
+</html>
