@@ -41,3 +41,6 @@ def login(request):
 def logout(request):
 	request.session.clear()
 	return redirect('auth:index')
+
+def intro(request):
+	return render(request, 'login/new.html')	
